@@ -3,7 +3,7 @@ import { routerTransition } from '../../../router.animations';
 import { Rider } from '../../../models/rider';
 import { Subscription } from 'rxjs/Rx';
 import { RiderService } from '../../../shared/services/rider.service';
-import { DataTableResource } from 'angular-4-data-table';
+import { DataTableResource } from 'angular5-data-table';
 
 import { Address } from '../../../models/address';
 
@@ -14,6 +14,8 @@ import { Address } from '../../../models/address';
   animations: [routerTransition()]
 })
 export class RiderViewComponent implements OnInit, OnDestroy {
+
+  @Input() rider: Rider;
 
   riders: Rider[];
   address: Address[];

@@ -1,3 +1,4 @@
+import { DataTableModule } from 'angular5-data-table';
 import { environment } from './../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RiderService } from './shared/services/rider.service';
@@ -18,7 +19,6 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
 
-import { DataTableModule } from "angular-4-data-table";
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
