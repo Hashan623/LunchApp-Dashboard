@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,10 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    user: firebase.User;
     pushRightClass: string = 'push-right';
 
-    constructor(private translate: TranslateService, public router: Router) {
-
+    constructor(private translate: TranslateService, public router: Router, private afAuth: AngularFireAuth) {
+        afAuth.authState.subscribe(user => this.user = user);
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
@@ -28,7 +30,7 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');
@@ -47,6 +49,8 @@ export class HeaderComponent implements OnInit {
 
     onLoggedout() {
         localStorage.removeItem('isLoggedin');
+        //localStorage.clear();
+        this.afAuth.auth.signOut();
     }
 
     changeLang(language: string) {

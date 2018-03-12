@@ -7,7 +7,11 @@ export class AuthGuard implements CanActivate {
     constructor(private router: Router) {}
 
     canActivate() {
-        if (localStorage.getItem('isLoggedin')) {
+        // if (localStorage.getItem('isLoggedin')) {
+        //     return true;
+        // }
+        
+        if (localStorage.getItem('firebase:authUser:AIzaSyDmSX9Wki73m_rWrFXphMish-V75CcCG7k:[DEFAULT]')) {
             return true;
         }
 

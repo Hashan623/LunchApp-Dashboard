@@ -1,8 +1,7 @@
+import { Address } from './../../models/address';
+import { Rider } from './../../models/rider';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
-import { Rider } from '../../models/rider';
-
-import { Address } from '../../models/address';
 import { UUID } from 'angular2-uuid';
 
 @Injectable()

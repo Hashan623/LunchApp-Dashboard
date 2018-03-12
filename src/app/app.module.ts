@@ -1,7 +1,16 @@
+import { ComponentGroupService } from './layout/components-group/components-group.service';
+import { ComponentService } from './layout/components-list/component.service';
+import { UsersCrudService } from './layout/users/users-crud.service';
+import { UserLevelService } from './layout/user-levels/user-levels.service';
+import { OrderService } from './layout/orders/order.service';
+import { FooddetailService } from './layout/food/food-detail/fooddetail.service';
+import { FoodtypeService } from './layout/food/food-types/foodtype.service';
+import { OutletService } from './layout/outlets/outlets.service';
+import { RiderService } from './layout/rider/rider.service';
 import { DataTableModule } from 'angular5-data-table';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { environment } from './../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RiderService } from './shared/services/rider.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,7 +41,7 @@ export function createTranslateLoader(http: HttpClient) {
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-        
+
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
@@ -41,6 +50,7 @@ export function createTranslateLoader(http: HttpClient) {
         HttpClientModule,
         BrowserAnimationsModule,
         DataTableModule,
+        AngularMultiSelectModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -51,7 +61,18 @@ export function createTranslateLoader(http: HttpClient) {
         AppRoutingModule
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard, RiderService],
+    providers: [
+        AuthGuard,
+        RiderService,
+        OutletService,
+        FoodtypeService,
+        FooddetailService,
+        OrderService,
+        UserLevelService,
+        UsersCrudService,
+        ComponentService,
+        ComponentGroupService
+    ],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
 import { Rider } from '../../../models/rider';
 import { Subscription } from 'rxjs/Rx';
-import { RiderService } from '../../../shared/services/rider.service';
+import { RiderService } from '../rider.service';
 import { DataTableResource } from 'angular5-data-table';
 
 import { Address } from '../../../models/address';

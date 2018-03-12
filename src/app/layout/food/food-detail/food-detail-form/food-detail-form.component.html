@@ -1,0 +1,130 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Food Detail Form'" [icon]="'fa-form'"></app-page-header>
+    <div class="row">
+        <div class="col-md-8">
+            <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="fname">Name</label>
+                        <div class="col-xs-10">
+                            <input #fname="ngModel" [(ngModel)]="fooddetail.fname" [(ngModel)]="fooddetail.keey" name="fname" id="fname" type="text"
+                                class="form-control" required>
+                            <div class="alert alert-danger" *ngIf="fname.touched && fname.invalid">
+                                Food Name is required!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="imageUrl">Image URL</label>
+                        <input #imageUrl="ngModel" [(ngModel)]="fooddetail.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control"
+                            required url>
+                        <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+                            <div *ngIf="imageUrl.errors.required">Image URL is required!</div>
+                            <div *ngIf="imageUrl.errors.url">URL is invalid!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="outlet">Outlet</label>
+                        <select #outlet="ngModel" [(ngModel)]="fooddetail.outlet" name="outlet" id="outlet" class="form-control" required>
+
+                            <option *ngFor="let o of outlets$ | async" [ngValue]="o">
+                                {{ o.name }}
+                            </option>
+                        </select>
+                        <div class="alert alert-danger" *ngIf="outlet.touched && outlet.invalid">
+                            Outlet is required.
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="form-group col-md-6">
+          <label for="keey">Outlet</label>
+          <select #keey="ngModel" [(ngModel)]="fooddetail.keey" name="keey" id="keey" class="form-control">
+            <option value="">Select...</option>
+            <option *ngFor="let p of outletkey$ | async" [value]="p.key">
+              {{ p.keey }}
+            </option>
+          </select>
+
+        </div>-->
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="foodType">Food Type</label>
+                        <select #foodType="ngModel" [(ngModel)]="fooddetail.foodType" name="foodType" id="foodType" class="form-control" required>
+
+                            <option *ngFor="let f of foodtypes$ | async" [value]="f.UUID">
+                                {{ f.name }}
+                            </option>
+                        </select>
+                        <div class="alert alert-danger" *ngIf="foodType.touched && foodType.invalid">
+                            Food Type is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="normalPrice">Normal Price</label>
+                        <div class="col-xs-10">
+                            <input #normalPrice="ngModel" [(ngModel)]="fooddetail.normalPrice" name="normalPrice" id="normalPrice" type="number" class="form-control"
+                                required>
+                            <div class="alert alert-danger" *ngIf="normalPrice.touched && normalPrice.invalid">
+                                Normal Price is required!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="extraPrice">Extra Price</label>
+                        <div class="col-xs-10">
+                            <input #extraPrice="ngModel" [(ngModel)]="fooddetail.extraPrice" name="extraPrice" id="extraPrice" type="number" class="form-control"
+                                required>
+                            <div class="alert alert-danger" *ngIf="extraPrice.touched && extraPrice.invalid">
+                                Extra Price is required!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row col-md-6">
+                    <div class="col-auto form-group col-md-6">
+                        <label>Active</label>
+                        <div class="radio">
+                            <label>
+                                <input  type="radio" name="isActive" id="isActive1" [(ngModel)]="fooddetail.isActive" [value]="true" checked="">True
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input  type="radio" name="isActive" id="isActive0" [(ngModel)]="fooddetail.isActive" [value]="false">False
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline-primary form-group col-md-3" [disabled]="!f.valid">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <div *ngIf="fooddetail.fname" class="card" style="width: 20rem;">
+                <img class="card-img-top" [src]="fooddetail.imageUrl" *ngIf="fooddetail.imageUrl">
+                <div class="card-body">
+                    <h4 class="card-title">{{ fooddetail.fname }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>

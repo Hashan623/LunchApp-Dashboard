@@ -1,4 +1,4 @@
-import { RiderService } from '../../../shared/services/rider.service';
+import { RiderService } from '../rider.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

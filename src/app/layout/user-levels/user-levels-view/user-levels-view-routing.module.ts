@@ -1,0 +1,15 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { UserLevelsViewComponent } from './user-levels-view.component';
+
+const routes: Routes = [
+    {
+        path: '', component: UserLevelsViewComponent
+    }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class UserLevelsViewRoutingModule { }

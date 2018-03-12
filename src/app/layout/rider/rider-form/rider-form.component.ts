@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RiderService } from '../../../shared/services/rider.service';
+import { RiderService } from '../rider.service';
 import 'rxjs/add/operator/take';
 
 import {Address} from '../../../models/address';
