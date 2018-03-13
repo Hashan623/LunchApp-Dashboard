@@ -10,10 +10,10 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-
+//import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
-  imports: [CommonModule, OutletsFormRoutingModule, PageHeaderModule, FormsModule,HttpModule, HttpClientModule  ],
+  imports: [CommonModule, OutletsFormRoutingModule, PageHeaderModule, FormsModule,HttpModule, HttpClientModule ],
   declarations: [OutletsFormComponent],
   providers: [OutletService]
 })

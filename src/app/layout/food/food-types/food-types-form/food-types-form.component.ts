@@ -32,7 +32,7 @@ export class FoodTypesFormComponent implements OnInit {
     if (this.id) this.foodtypeService.update(this.id, outlet);
     else this.foodtypeService.create(this.foodtype, this.uuid);
 
-    this.router.navigate(['/admin/food/foodtypes']);
+    this.router.navigate(['/food-types-view']);
   }
 
   ngOnInit() {

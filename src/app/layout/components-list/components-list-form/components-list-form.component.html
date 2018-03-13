@@ -30,19 +30,19 @@
         <div class="form-row">
             <div class="col-auto form-group col-md-6">
               <label for="isActive">Is Active</label>
-              <br>
-              <label class="custom-control custom-radio active">
-                <input id="isActive1" name="isActive" #active="ngModel" [(ngModel)]="component.isActive" type="radio" class="custom-control-input"
-                  [value]="true" required>
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">True</span>
-              </label>
-              <label class="custom-control custom-radio">
-                <input id="isActive0" name="isActive" #active="ngModel" [(ngModel)]="component.isActive" type="radio" class="custom-control-input"
-                  [value]="false" required>
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">False</span>
-              </label>
+
+              <div class="radio">
+                <label>
+                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive1" value="true">Active
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive2" value="false">Inactive
+                </label>
+            </div>
+
+
             </div>
           </div>
 

@@ -1,3 +1,4 @@
+//import { AgmCoreModule } from 'angular2-google-maps/core';
 import { ComponentGroupService } from './layout/components-group/components-group.service';
 import { ComponentService } from './layout/components-list/component.service';
 import { UsersCrudService } from './layout/users/users-crud.service';
@@ -36,12 +37,19 @@ export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+
+
+// const googleMapsCore = AgmCoreModule.forRoot({
+//     apiKey : 'AIzaSyDHvITRcjLl9JrObz3SIBTgGNl9rTijVr8',
+//   });
+
+
+
 @NgModule({
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-
         CommonModule,
         FormsModule,
         ReactiveFormsModule,

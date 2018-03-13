@@ -34,7 +34,7 @@ export class ComponentsListFormComponent implements OnInit {
 
 
 
-      this.router.navigate(['/admin/component/components']);
+      this.router.navigate(['/components-list-view']);
     }
 
   ngOnInit() {

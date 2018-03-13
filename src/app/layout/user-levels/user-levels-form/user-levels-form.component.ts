@@ -36,7 +36,7 @@ export class UserLevelsFormComponent implements OnInit {
 
 
 
-      this.router.navigate(['/admin/userlevels/userlevelss']);
+      this.router.navigate(['/user-levels-view']);
     }
 
   ngOnInit() {

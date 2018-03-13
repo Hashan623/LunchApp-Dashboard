@@ -119,7 +119,7 @@
             <div class="form-group col-md-12">
             <label for="imageUrl"><h4>Please Select the Place (Latitude & Longtitude) on the Map</h4></label>
             </div>
-        <!-- <sebm-google-map
+         <!-- <sebm-google-map
         [latitude]="lat"
         [longitude]="lng"
         [zoom]="zoom"
@@ -178,44 +178,25 @@
             </div>
           </div>
 
-   <!--     <div class="form-row">
-           <div class="form-group col-md-6">
-            <label for="active">Active</label>
-            <input #active="ngModel" [(ngModel)]="outlet.active" name="active" id="active" type="text" class="form-control" required>
-            <div class="alert alert-danger" *ngIf="active.touched && active.invalid">
-              <div *ngIf="active.errors.required">Active is required!</div>
-            </div>
-          </div>
-
-          <div class="col-auto form-group col-md-6">
-            <label for="active">Active</label>
-            <select class="custom-select" id="active" #active="ngModel" [(ngModel)]="outlet.active" name="active" class="form-control" type="number" required>
-              <option value="1">True</option>
-              <option value="0">False</option>
-            </select>
-            <div class="alert alert-danger" *ngIf="active.touched && active.invalid">
-              <div *ngIf="active.errors.required">Active is required!</div>
-            </div>
-          </div>
-        </div>-->
 
         <div class="form-row">
 
-          <div class="col-auto form-group col-md-6">
-            <label for="active">Active</label>
-            <br>
-          <label class="custom-control custom-radio active">
-            <input id="active1" name="active" #active="ngModel" [(ngModel)]="outlet.active" type="radio" class="custom-control-input" value="1" checked="" required >
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">True</span>
-          </label>
-          <label class="custom-control custom-radio">
-            <input id="active2" name="active" #active="ngModel" [(ngModel)]="outlet.active" type="radio" class="custom-control-input" value="0" required>
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">False</span>
-          </label>
 
-          </div>
+            <div class="form-row col-md-6">
+                <div class="col-auto form-group col-md-6">
+                    <label for="active">Active</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" #active="ngModel" [(ngModel)]="outlet.active" name="active" id="active1" value="true">True
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" #active="ngModel" [(ngModel)]="outlet.active" name="active" id="active2" value="false">False
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
 
           <button class="btn btn-outline-primary form-group col-md-3" [disabled]="!f.valid">Submit</button>

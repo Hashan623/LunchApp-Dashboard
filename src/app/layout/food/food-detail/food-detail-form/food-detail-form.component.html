@@ -56,9 +56,7 @@
           </select>
 
         </div>-->
-                </div>
 
-                <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="foodType">Food Type</label>
                         <select #foodType="ngModel" [(ngModel)]="fooddetail.foodType" name="foodType" id="foodType" class="form-control" required>
@@ -84,9 +82,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="extraPrice">Extra Price</label>
                         <div class="col-xs-10">
@@ -99,17 +95,17 @@
                     </div>
                 </div>
 
-                <div class="form-row col-md-6">
+                <div class="form-row ">
                     <div class="col-auto form-group col-md-6">
-                        <label>Active</label>
+                        <label>Is Active</label>
                         <div class="radio">
                             <label>
-                                <input  type="radio" name="isActive" id="isActive1" [(ngModel)]="fooddetail.isActive" [value]="true" checked="">True
+                                <input type="radio" name="isActive" id="isActive1" #isActive="ngModel" [(ngModel)]="fooddetail.isActive" [value]="true" checked="">True
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input  type="radio" name="isActive" id="isActive0" [(ngModel)]="fooddetail.isActive" [value]="false">False
+                                <input type="radio" name="isActive" id="isActive2" #isActive="ngModel" [(ngModel)]="fooddetail.isActive" [value]="false">False
                             </label>
                         </div>
                     </div>

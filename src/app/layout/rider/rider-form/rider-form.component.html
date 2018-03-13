@@ -109,51 +109,25 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-auto form-group col-md-6">
-              <label for="active">Active</label>
-              <select class="custom-select" id="active" #active="ngModel" [(ngModel)]="rider.active" name="active" class="form-control" type="number" required>
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
-              <div class="alert alert-danger" *ngIf="active.touched && active.invalid">
-                <div *ngIf="active.errors.required">Active is required!</div>
-              </div>
-            </div> -->
 
-                    <!-- <div class="form-row col-md-6">
-  
-                        <div class="col-auto form-group col-md-6">
-                          <label for="active">Active</label>
-                          <br>
-                        <label class="custom-control custom-radio">
-                          <input id="active1" name="active" #active="ngModel" [(ngModel)]="rider.active" type="radio" class="custom-control-input" value="1" required>
-                          <span class="custom-control-indicator"></span>
-                          <span class="custom-control-description">True</span>
-                        </label>
-                        <label class="custom-control custom-radio">
-                          <input id="active2" name="active" #active="ngModel" [(ngModel)]="rider.active" type="radio" class="custom-control-input" value="0" required>
-                          <span class="custom-control-indicator"></span>
-                          <span class="custom-control-description">False</span>
-                        </label>
-  
-                        </div>
-                    </div> -->
 
                     <div class="form-row col-md-6">
                         <div class="col-auto form-group col-md-6">
-                            <label>Active</label>
+                            <label for="active">Active</label>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="active" id="active1" value="1" checked="">True
+                                    <input type="radio" #active="ngModel" [(ngModel)]="rider.active" name="active" id="active1" value="true">Active
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="active" id="active2" value="0">False
+                                    <input type="radio" #active="ngModel" [(ngModel)]="rider.active" name="active" id="active2" value="false">Inactive
                                 </label>
                             </div>
                         </div>
                     </div>
+
+
 
                 </div>
 
