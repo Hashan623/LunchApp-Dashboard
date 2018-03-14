@@ -6,4 +6,5 @@ export class FoodType {
     isMainMenu:boolean = true;
     imageUrl: string;
     isSpecial:boolean = true;
+    isActive: boolean = true;
   }
