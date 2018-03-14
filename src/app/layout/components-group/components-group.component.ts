@@ -73,6 +73,7 @@ export class ComponentsGroupComponent implements OnInit {
     ComponentGroup.UUID = this.uuid;
     ComponentGroup.component = componentModelGroup;
     this.db.database.ref('/componentsGroup').child(this.uuid).set(ComponentGroup)
+
   }
 
   onItemSelect(item: any) {
@@ -83,9 +84,9 @@ export class ComponentsGroupComponent implements OnInit {
 
   onSelectAll(item: any) {
   }
-  
+
   onDeSelectAll(item: any) {
   }
-  
+
 
 }

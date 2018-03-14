@@ -25,8 +25,8 @@ export class RiderService {
 
 
   create(rider, address: Address, uuid) {
-    rider.googleid = 'null';
-    rider.active = 'false';
+  //  rider.googleid = 'null';
+  //  rider.active = 'false';
 
     this.uuid = uuid;
     rider.UUID = uuid;

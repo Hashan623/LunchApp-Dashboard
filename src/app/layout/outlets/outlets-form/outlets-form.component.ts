@@ -2,11 +2,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OutletService } from '../outlets.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import 'rxjs/add/operator/take';
-
+import { Outlet } from '../../../models/outlet';
 import { Address } from '../../../models/address';
 //import { AgmCoreModule } from 'angular2-google-maps/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { MouseEvent } from '@agm/core';
+import { MouseEvent } from '@agm/core';
 
 import { UUID } from 'angular2-uuid';
 import { routerTransition } from '../../../router.animations';
@@ -44,7 +44,7 @@ uuid: string = UUID.UUID();
 
     this.address = new Address();
 
-    this.router.navigate(['/admin/outlets']);
+    this.router.navigate(['/outlets-view']);
   }
 
   ngOnInit() {
@@ -63,50 +63,54 @@ uuid: string = UUID.UUID();
 
   //    lng: number = 79.861244;
 
-  // google maps zoom level
-  zoom: number = 12;
-
-  lat: number =  6.927079;
-  lng: number = 79.861244;
-
-  draggable : boolean = true;
-
-  clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
-  }
-
-  // mapClicked(m: marker, $event: MouseEvent) {
-  //   this.markers.length = 0;
-  //   this.markers.push({
-  //     lat: $event.coords.lat,
-  //     lng: $event.coords.lng,
-  //     draggable: true
-  //   });
-  //   console.log('place', m, $event);
-
-  // }
-
-  // markerDragEnd(m: marker, $event: MouseEvent) {
-  //   this.markers.length = 0;
-  //   this.markers.push({
-  //     lat: $event.coords.lat,
-  //     lng: $event.coords.lng,
-  //     draggable: false
-  //   });
-  //   console.log('dragEnd', m, $event);
-  // }
 
 
 
-  markers: marker[] = [
-	  // {
-		//   lat: 6.886867772472544,
-		//   lng: 79.88675504922867,
-		//   label: 'Sen Su',
-		//   draggable: true
-	  // }
 
-  ]
+//   // google maps zoom level
+//   zoom: number = 12;
+
+//   lat: number =  6.927079;
+//   lng: number = 79.861244;
+
+//   draggable : boolean = true;
+
+//   clickedMarker(label: string, index: number) {
+//     console.log(`clicked the marker: ${label || index}`)
+//   }
+
+//   mapClicked(m: marker, $event: MouseEvent) {
+//     this.markers.length = 0;
+//     this.markers.push({
+//       lat: $event.coords.lat,
+//       lng: $event.coords.lng,
+//       draggable: true
+//     });
+//     console.log('place', m, $event);
+
+//   }
+
+//   markerDragEnd(m: marker, $event: MouseEvent) {
+//     this.markers.length = 0;
+//     this.markers.push({
+//       lat: $event.coords.lat,
+//       lng: $event.coords.lng,
+//       draggable: false
+//     });
+//     console.log('dragEnd', m, $event);
+//   }
+
+
+
+//   markers: marker[] = [
+// 	  // {
+// 		//   lat: 6.886867772472544,
+// 		//   lng: 79.88675504922867,
+// 		//   label: 'Sen Su',
+// 		//   draggable: true
+// 	  // }
+
+//   ]
 }
 
 // just an interface for type safety.

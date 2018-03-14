@@ -37,6 +37,14 @@ export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+
+
+// const googleMapsCore = AgmCoreModule.forRoot({
+//     apiKey : 'AIzaSyDHvITRcjLl9JrObz3SIBTgGNl9rTijVr8',
+//   });
+
+
+
 @NgModule({
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

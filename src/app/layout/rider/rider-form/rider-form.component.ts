@@ -40,7 +40,7 @@ export class RiderFormComponent implements OnInit {
 
     this.address = new Address();
 
-    this.router.navigate(['/rider-form']);
+    this.router.navigate(['/rider-view']);
   }
 
   ngOnInit() {

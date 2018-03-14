@@ -37,7 +37,7 @@ export class UsersFormComponent implements OnInit {
 
 
 
-    this.router.navigate(['/admin/user/users']);
+    this.router.navigate(['/users-view']);
   }
 
   ngOnInit() {

@@ -21,12 +21,12 @@
                         <label>Is this a main menu item?</label>
                         <div class="radio">
                             <label>
-                                <input  type="radio" name="isActive" id="isActive1" [(ngModel)]="foodtype.isMainMenu" [value]="true" checked="">True
+                                <input  type="radio" name="isMainMenu" #isMainMenu="ngModel" id="isMainMenu1" [(ngModel)]="foodtype.isMainMenu" [value]="true" checked="">Yes
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input  type="radio" name="isActive" id="isActive0" [(ngModel)]="foodtype.isMainMenu" [value]="false">False
+                                <input  type="radio" name="isMainMenu" #isMainMenu="ngModel" id="isMainMenu2" [(ngModel)]="foodtype.isMainMenu" [value]="false">No
                             </label>
                         </div>
                     </div>
@@ -48,14 +48,15 @@
                 <div class="form-row col-md-6">
                     <div class="col-auto form-group col-md-6">
                         <label>Is this a special item?</label>
+
                         <div class="radio">
                             <label>
-                                <input  type="radio" name="isActive" id="isActive1" [(ngModel)]="foodtype.isSpecial" [value]="true" checked="">True
+                                <input type="radio" #isSpecial="ngModel" [(ngModel)]="foodtype.isSpecial" name="isSpecial" id="isSpecial1" value="true">Yes
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input  type="radio" name="isActive" id="isActive0" [(ngModel)]="foodtype.isSpecial" [value]="false">False
+                                <input type="radio" #isSpecial="ngModel" [(ngModel)]="foodtype.isSpecial" name="isSpecial" id="isSpecial2" value="false">No
                             </label>
                         </div>
                     </div>
