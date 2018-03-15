@@ -1,4 +1,4 @@
-//import { AgmCoreModule } from 'angular2-google-maps/core';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { ComponentGroupService } from './layout/components-group/components-group.service';
 import { ComponentService } from './layout/components-list/component.service';
 import { UsersCrudService } from './layout/users/users-crud.service';
@@ -50,6 +50,7 @@ export function createTranslateLoader(http: HttpClient) {
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
+        Ng4LoadingSpinnerModule.forRoot(),
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
@@ -79,7 +80,7 @@ export function createTranslateLoader(http: HttpClient) {
         UserLevelService,
         UsersCrudService,
         ComponentService,
-        ComponentGroupService
+        ComponentGroupService,
     ],
     bootstrap: [AppComponent]
 })
