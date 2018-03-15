@@ -51,12 +51,12 @@
 
                         <div class="radio">
                             <label>
-                                <input type="radio" #isSpecial="ngModel" [(ngModel)]="foodtype.isSpecial" name="isSpecial" id="isSpecial1" value="true">Yes
+                                <input type="radio" #isSpecial="ngModel" [(ngModel)]="foodtype.isSpecial" name="isSpecial" id="isSpecial1" [value]="true" checked="">Yes
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" #isSpecial="ngModel" [(ngModel)]="foodtype.isSpecial" name="isSpecial" id="isSpecial2" value="false">No
+                                <input type="radio" #isSpecial="ngModel" [(ngModel)]="foodtype.isSpecial" name="isSpecial" id="isSpecial2" [value]="false">No
                             </label>
                         </div>
                     </div>

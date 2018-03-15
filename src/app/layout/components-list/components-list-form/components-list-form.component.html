@@ -33,12 +33,12 @@
 
               <div class="radio">
                 <label>
-                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive1" value="true">Active
+                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive1" [value]="true" checked="">Active
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive2" value="false">Inactive
+                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive2" [value]="false">Inactive
                 </label>
             </div>
 

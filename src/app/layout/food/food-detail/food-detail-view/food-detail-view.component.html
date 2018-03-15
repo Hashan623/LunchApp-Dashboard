@@ -72,7 +72,7 @@
   [property]="'$key'"
 >
 <ng-template #dataTableCell let-item="item">
-<a [routerLink]="['/admin/food/fooddetail', item.$key]">Edit</a>
+<a [routerLink]="['/food-detail-form/', item.$key]">Edit</a>
 </ng-template>
 </data-table-column>
 
