@@ -45,7 +45,7 @@ export class FoodDetailViewComponent implements OnInit {
 
   filter(query: String) {
     let filteredOutlets = (query) ?
-      this.fooddetails.filter(o => o.fname.toLowerCase().includes(query.toLowerCase())) :
+      this.fooddetails.filter(o => o.itemName.toLowerCase().includes(query.toLowerCase())) :
       this.fooddetails;
 
       this.initializeTable(filteredOutlets);

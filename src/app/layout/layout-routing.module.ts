@@ -24,11 +24,15 @@ const routes: Routes = [
             { path: 'rider-view', loadChildren: './rider/rider-view/rider-view.module#RiderViewModule' },
             { path: 'rider-form', loadChildren: './rider/rider-form/rider-form.module#RiderFormModule' },
 
+            { path: 'food-types-view', loadChildren: './food/food-types/food-types-view/food-types-view.module#FoodTypesViewModule'},
+            { path: 'food-types-form', loadChildren: './food/food-types/food-types-form/food-types-form.module#FoodTypesFormModule'},
+
             { path: 'food-detail-view', loadChildren: './food/food-detail/food-detail-view/food-detail-view.module#FoodDetailViewModule'},
             { path: 'food-detail-form', loadChildren: './food/food-detail/food-detail-form/food-detail-form.module#FoodDetailFormModule'},
 
-            { path: 'food-types-view', loadChildren: './food/food-types/food-types-view/food-types-view.module#FoodTypesViewModule'},
-            { path: 'food-types-form', loadChildren: './food/food-types/food-types-form/food-types-form.module#FoodTypesFormModule'},
+            { path: 'day-food', loadChildren: './food/day-food/day-food.module#DayFoodModule'},
+
+            { path: 'food-detail-type', loadChildren: './food/food-detail-type/food-detail-type.module#FoodDetailTypeModule'},
 
             { path: 'orders-view', loadChildren: './orders/orders-view/orders-view.module#OrdersViewModule' },
             { path: 'orders-form', loadChildren: './orders/orders-form/orders-form.module#OrdersFormModule' },

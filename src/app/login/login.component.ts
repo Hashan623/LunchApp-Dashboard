@@ -27,12 +27,21 @@ export class LoginComponent implements OnInit {
             } else {
                 console.log('else');
                 this.spinnerService.show();
-                setTimeout(function() {
+                setTimeout(function () {
                     this.spinnerService.hide();
-                  }.bind(this), 5000)
-                }
+                }.bind(this), 5000)
+            }
         });
-    
+
+        // firebase.auth().onAuthStateChanged(user => {
+        //     if (user) {
+        //         this.router.navigate(['/dashboard']);
+        //     }
+        //     else {
+        //         this.spinnerService.show();
+        //     }
+        // });
+
 
         // firebase.auth().getRedirectResult().then(result => {
         //     if (result.user) {

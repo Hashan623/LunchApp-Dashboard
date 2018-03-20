@@ -2,11 +2,12 @@ import { Outlet } from './outlet';
 
 
 export class FoodDetail {
-    $key: string;
+    //$key: string;
 
+    UUID: string;
     fname: string;
-    uuid: string;
-    name: string;
+    id: string;
+    itemName: string;
     imageUrl: string;
     outlet: Outlet;
     foodtype: string;
