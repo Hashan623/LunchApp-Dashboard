@@ -5,9 +5,9 @@
 
 
 
-    <p>
+    <!-- <p>
         <a routerLink="/users-form" class="btn btn-primary">Add Users</a>
-      </p>
+      </p> -->
 
       <!-- <p>
         <a routerLink="/admin/user/users/new" class="btn btn-primary">Add Users</a>
@@ -75,7 +75,7 @@
         [property]="'$key'"
       >
       <ng-template #dataTableCell let-item="item">
-      <a [routerLink]="['/user-view', item.$key]">Edit</a>
+      <a [routerLink]="['/users-form', item.$key]">Edit</a>
       </ng-template>
       </data-table-column>
 

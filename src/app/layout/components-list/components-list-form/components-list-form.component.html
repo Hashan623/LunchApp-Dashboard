@@ -38,16 +38,16 @@
                 <div class="col-auto form-group col-md-6">
                     <label for="isActive">Is Active</label>
 
-                    <div class="radio">
-                        <label>
-                            <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive" name="isActive" id="isActive1" value="true">Active
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive" name="isActive" id="isActive2" value="false">Inactive
-                        </label>
-                    </div>
+              <div class="radio">
+                <label>
+                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive1" [value]="true" checked="">Active
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive2" [value]="false">Inactive
+                </label>
+            </div>
 
 
                 </div>

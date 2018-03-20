@@ -1,9 +1,9 @@
 <div [@routerTransition]>
     <app-page-header [heading]="'Outlets View'" [icon]="'fa-form'"></app-page-header>
 
-<p>
+<!-- <p>
     <a routerLink="/outlets-form" class="btn btn-primary">Add Outlet</a>
-</p>
+</p> -->
 <p>
     <input
     #query
@@ -61,9 +61,11 @@
     [property]="'$key'"
 >
 <ng-template #dataTableCell let-item="item">
-  <a [routerLink]="['/admin/outlets/', item.$key]">Edit</a>
+  <a [routerLink]="['/outlets-form/', item.$key]">Edit</a>
 </ng-template>
 </data-table-column>
 
 </data-table>
 </div>
+
+

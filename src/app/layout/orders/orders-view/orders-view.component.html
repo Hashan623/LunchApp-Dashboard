@@ -5,9 +5,9 @@
 
 
 
-    <p>
-      <a routerLink="/admin/order/orders/new" class="btn btn-primary">Add Orders</a>
-    </p>
+    <!-- <p>
+      <a routerLink="/orders-form" class="btn btn-primary">Add Orders</a>
+    </p> -->
     <p>
       <input
       #query
@@ -98,7 +98,7 @@
       [property]="'$key'"
     >
     <ng-template #dataTableCell let-item="item">
-    <a [routerLink]="['/admin/order/orders/', item.$key]">Edit</a>
+    <a [routerLink]="['/orders-form/', item.$key]">Edit</a>
     </ng-template>
     </data-table-column>
 

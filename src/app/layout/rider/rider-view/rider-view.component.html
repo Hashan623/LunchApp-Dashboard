@@ -1,33 +1,33 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'Rider View'" [icon]="'fa-form'"></app-page-header>
 
-  
+
 <div style="margin: auto; max-width: 1500px; margin-bottom: 50px;">
 
 
 
 
 
-  <p>
+  <!-- <p>
     <a routerLink="/rider-form" class="btn btn-primary">Add Riders</a>
-  </p>
+  </p> -->
   <p>
     <input
     #query
     (keyup)="filter(query.value)"
     type="text" class="form-control" placeholder="Search...">
   </p>
-  
+
   <data-table  id="persons-grid"
   headerTitle="Riders"
     [items]="items"
     [itemCount]="itemCount"
     (reload)="reloadItems($event)"
-  
-  
+
+
     [rowTooltip]="rowTooltip"
   >
-  
+
   <data-table-column
     [property]="'name'"
     [header]="'Name'"
@@ -35,7 +35,7 @@
     [resizable]="true"
   >
   </data-table-column>
-  
+
   <data-table-column
     [property]="'phone'"
     [header]="'Phone'"
@@ -43,7 +43,7 @@
     [resizable]="true"
   >
   </data-table-column>
-  
+
   <data-table-column
     [property]="'addressnumber'"
     [header]="'Address No'"
@@ -52,7 +52,7 @@
     [resizable]="true"
   >
   </data-table-column>
-  
+
   <data-table-column
     [property]="'subroad'"
     [header]="'Sub Road'"
@@ -60,7 +60,7 @@
     [resizable]="true"
   >
   </data-table-column>
-  
+
   <data-table-column
     [property]="'mainroad'"
     [header]="'Main Road'"
@@ -68,7 +68,7 @@
     [resizable]="true"
   >
   </data-table-column>
-  
+
   <data-table-column
   [property]="'city'"
   [header]="'City'"
@@ -76,16 +76,16 @@
   [resizable]="true"
   >
   </data-table-column>
-  
-  
-  
+
+
+
   <data-table-column
     [property]="'nic'"
     [header]="'NIC'"
     [sortable]="true"
     [resizable]="true">
   </data-table-column>
-  
+
   <!--
   <data-table-column
     [property]="'googleid'"
@@ -94,41 +94,41 @@
     [resizable]="true"
   >
   </data-table-column>
-  
+
   -->
-  
+
   <!-- <data-table-column
   [property]="'active'"
   [header]="'Active'"
   [width]="100"
   [resizable]="true">
-  
+
   </data-table-column> -->
-  
-  
-  
+
+
+
   <data-table-column
     [property]="'avgrating'"
     [header]="'AVGRating'"
     [sortable]="true"
     [resizable]="true"
   >
-  
+
   </data-table-column>
-  
+
   <data-table-column
     [property]="'$key'"
   >
   <ng-template #dataTableCell let-item="item">
-  <a [routerLink]="['/admin/riders/', item.$key]">Edit</a>
+  <a [routerLink]="['/rider-form/', item.$key]">Edit</a>
   </ng-template>
   </data-table-column>
-  
-  
+
+
   </data-table>
-  
-  
+
+
   </div>
-  
+
 
 </div>
