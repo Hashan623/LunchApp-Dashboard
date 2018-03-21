@@ -20,6 +20,6 @@ export class Outlet {
       subroad: string;
       mainroad: string;
       city: string;
-  
+      file: File;
     }
   

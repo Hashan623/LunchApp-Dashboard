@@ -25,11 +25,11 @@ export class LoginComponent implements OnInit {
             if (result.user || firebase.auth().currentUser) {
                 this.router.navigate(['/dashboard']);
             } else {
-                console.log('else');
-                this.spinnerService.show();
-                setTimeout(function() {
-                    this.spinnerService.hide();
-                  }.bind(this), 5000)
+                // console.log('else');
+                // this.spinnerService.show();
+                // setTimeout(function() {
+                //     this.spinnerService.hide();
+                //   }.bind(this), 5000)
                 }
         });
     
