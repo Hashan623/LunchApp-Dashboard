@@ -5,13 +5,15 @@ import { User } from './../../../models/user';
 import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { DataTableResource } from 'angular5-data-table';
+import { routerTransition } from '../../../router.animations';
 
 
 
 @Component({
   selector: 'app-user-view',
   templateUrl: './users-view.component.html',
-  styleUrls: ['./users-view.component.css']
+  styleUrls: ['./users-view.component.css'],
+  animations: [routerTransition()]
 })
 export class UsersViewComponent implements OnInit, OnDestroy  {
 

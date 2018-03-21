@@ -3,13 +3,15 @@ import { UserLevel } from './../../../models/user-level';
 import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { DataTableResource } from 'angular5-data-table';
+import { routerTransition } from '../../../router.animations';
 
 
 
 @Component({
   selector: 'app-userlevels-view',
   templateUrl: './user-levels-view.component.html',
-  styleUrls: ['./user-levels-view.component.css']
+  styleUrls: ['./user-levels-view.component.css'],
+  animations: [routerTransition()]
 })
 export class UserLevelsViewComponent implements  OnInit, OnDestroy {
 

@@ -3,12 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import 'rxjs/add/operator/take';
 import { UUID } from 'angular2-uuid';
+import { routerTransition } from '../../../router.animations';
 
 
 @Component({
   selector: 'app-component-form',
   templateUrl: './components-list-form.component.html',
-  styleUrls: ['./components-list-form.component.css']
+  styleUrls: ['./components-list-form.component.css'],
+  animations: [routerTransition()]
 })
 export class ComponentsListFormComponent implements OnInit {
 

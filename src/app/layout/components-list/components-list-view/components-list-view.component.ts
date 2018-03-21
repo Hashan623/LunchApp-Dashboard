@@ -3,13 +3,15 @@ import { ComponentList } from './../../../models/component-list';
 import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { DataTableResource } from 'angular5-data-table';
+import { routerTransition } from '../../../router.animations';
 
 
 
 @Component({
   selector: 'app-component-view',
   templateUrl: './components-list-view.component.html',
-  styleUrls: ['./components-list-view.component.css']
+  styleUrls: ['./components-list-view.component.css'],
+  animations: [routerTransition()]
 })
 export class ComponentsViewComponent implements OnInit , OnDestroy{
 

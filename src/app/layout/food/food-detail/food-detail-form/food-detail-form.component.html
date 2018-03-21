@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Food Detail Form'" [icon]="'fa-form'"></app-page-header>
+    <app-page-header [heading]="'Food Detail Form'" [icon]="'fa fa-edit'"></app-page-header>
     <div class="row">
         <div class="col-md-8">
             <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
@@ -36,7 +36,7 @@
                         <label for="outlet">Outlet</label>
                         <select #outlet="ngModel" [(ngModel)]="fooddetail.outlet" name="outlet" id="outlet" class="form-control" required>
 
-                            <option *ngFor="let o of outlets$ | async" [ngValue]="o">
+                            <option *ngFor="let o of outlets$ | async" [value]="o.UUID">
                                 {{ o.name }}
                             </option>
                         </select>
@@ -67,6 +67,21 @@
                         </select>
                         <div class="alert alert-danger" *ngIf="foodType.touched && foodType.invalid">
                             Food Type is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="foodDetailType">Food Detail Type</label>
+                        <select #foodDetailType="ngModel" [(ngModel)]="fooddetail.foodDetailType" [(ngModel)]="fooddetail.sort" name="foodDetailType" id="foodDetailType" class="form-control"
+                            required>
+                            <option *ngFor="let f of foodDetailTypes$ | async" [ngValue]="f">
+                                {{ f.description }}
+                            </option>
+                        </select>
+                        <div class="alert alert-danger" *ngIf="foodDetailType.touched && foodDetailType.invalid">
+                            Food Detail Type is required.
                         </div>
                     </div>
                 </div>

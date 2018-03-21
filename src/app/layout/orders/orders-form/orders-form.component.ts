@@ -5,11 +5,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import 'rxjs/add/operator/take';
 import { OrderService } from '../order.service';
 import { UUID } from 'angular2-uuid';
+import { routerTransition } from '../../../router.animations';
 
 @Component({
   selector: 'app-orders-form',
   templateUrl: './orders-form.component.html',
-  styleUrls: ['./orders-form.component.css']
+  styleUrls: ['./orders-form.component.css'],
+  animations: [routerTransition()]
 })
 export class OrdersFormComponent implements OnInit {
 

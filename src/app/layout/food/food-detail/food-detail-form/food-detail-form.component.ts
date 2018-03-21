@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from 'angularfire2/database';
 import { OutletService } from './../../../outlets/outlets.service';
 import { FoodtypeService } from './../../food-types/foodtype.service';
 import { FooddetailService } from '../fooddetail.service';
@@ -20,6 +21,7 @@ export class FoodDetailFormComponent implements OnInit {
   id;
   outlets$;
   foodtypes$;
+  foodDetailTypes$;
 
   ID: string;
 
@@ -29,6 +31,7 @@ export class FoodDetailFormComponent implements OnInit {
 
 
   constructor(
+    private db: AngularFireDatabase,
     private router: Router,
     private route: ActivatedRoute,
     private foodtypeService: FoodtypeService,
@@ -37,6 +40,7 @@ export class FoodDetailFormComponent implements OnInit {
     foodTypeService: FoodtypeService) {
     this.outlets$ = outletService.getOutletList();
     this.foodtypes$ = foodTypeService.getFoodtypesList();
+    this.foodDetailTypes$ = this.getFoodDetailTypesList();
 
     this.id = this.route.snapshot.paramMap.get('id');
 
@@ -52,6 +56,14 @@ export class FoodDetailFormComponent implements OnInit {
     else this.fooddetailService.create(this.fooddetail, this.uuid);
 
     this.router.navigate(['/food-detail-view']);
+  }
+
+  getFoodDetailTypesList() {
+    return this.db.list('/foodDetailType', {
+      query: {
+        orderByChild: 'sort'
+      }
+    });
   }
 
   ngOnInit() {

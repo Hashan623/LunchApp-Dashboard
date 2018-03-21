@@ -1,7 +1,24 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <div class="list-group">
 
-        <!-- <div class="nested-menu">
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('orders')">
+                <span>
+                    <i class="fas fa-dollar-sign"></i>&nbsp; {{ 'Orders' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'orders'">
+                <ul class="submenu">
+                    <a [routerLink]="['/orders-view']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                        <i class="fa fa-eye"></i>&nbsp;{{ 'View' | translate }}
+                    </a>
+                    <a [routerLink]="['/orders-form']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                        <i class="fa fa-edit"></i>&nbsp;{{ 'Form' | translate }}
+                    </a>
+                </ul>
+            </li>
+        </div>
+
+        <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('outlets')">
                 <span>
                     <i class="fas fa-shopping-bag"></i>&nbsp; {{ 'Outlets' | translate }}</span>

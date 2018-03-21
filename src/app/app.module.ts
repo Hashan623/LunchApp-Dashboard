@@ -1,4 +1,6 @@
 import { UserService } from './layout/users/user.service';
+import { FoodDetailTypeService } from './layout/food/food-detail-type/food-detail-type.service';
+import { SpinnerService } from './spinner.service';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { ComponentGroupService } from './layout/components-group/components-group.service';
 import { ComponentService } from './layout/components-list/component.service';
@@ -84,7 +86,9 @@ export function createTranslateLoader(http: HttpClient) {
         ComponentService,
         ComponentGroupService,
         UserService,
-        OutletTestService
+        OutletTestService,
+        SpinnerService,
+        FoodDetailTypeService
     ],
     bootstrap: [AppComponent]
 })

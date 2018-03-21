@@ -1,0 +1,49 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Food Detail Type'" [icon]="'fas fa-sitemap'"></app-page-header>
+    <div class="row">
+        <div class="col-md-8">
+            <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="description">Description</label>
+                        <input #description="ngModel" [(ngModel)]="foodDetailType.description" name="description" id="description" class="form-control"
+                            required>
+                        <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+                            <div *ngIf="description.errors.required">Description is required!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="sort">Sort Number</label>
+                        <input #sort="ngModel" [(ngModel)]="foodDetailType.sort" name="sort" id="sort" class="form-control" type="number" required>
+                        <div class="alert alert-danger" *ngIf="sort.touched && sort.invalid">
+                            <div *ngIf="sort.errors.required">A sort number is required!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-auto form-group col-md-6">
+                        <label for="isActive">Is Active</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" #isActive="ngModel" [(ngModel)]="foodDetailType.isActive" name="isActive" id="isActive1" [value]="true">Active
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" #isActive="ngModel" [(ngModel)]="foodDetailType.isActive" name="isActive" id="isActive2" [value]="false">Inactive
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <button class="btn btn-outline-primary form-group col-md-3" [disabled]="!f.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

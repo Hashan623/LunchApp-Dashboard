@@ -8,5 +8,6 @@ export class ComponentList {
     url: string;
     isActive: boolean = true;
     icon: string;
+  
   }
   
