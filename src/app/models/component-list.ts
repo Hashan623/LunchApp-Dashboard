@@ -7,6 +7,7 @@ export class ComponentList {
     componentName: string;
     url: string;
     isActive: boolean = true;
+    icon: string;
   
   }
   

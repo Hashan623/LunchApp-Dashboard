@@ -1,3 +1,6 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Component List Form'" [icon]="'fa fa-edit'"></app-page-header>
+
 <div class="row">
     <div class="col-md-6">
         <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
@@ -24,30 +27,29 @@
             </div>
 
             <div class="form-row">
-              <div class="form-group col-md-6">
-                  <label for="icon">Icon</label>
-                  <input #icon="ngModel" [(ngModel)]="component.icon" name="icon" id="icon" type="text"
-                      class="form-control" required>
-                  <div class="alert alert-danger" *ngIf="icon.touched && icon.invalid">
-                      An icon name is required!
-                  </div>
-              </div>
-          </div>
+                <div class="form-group col-md-6">
+                    <label for="icon">Icon</label>
+                    <input #icon="ngModel" [(ngModel)]="component.icon" name="icon" id="icon" type="text" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="icon.touched && icon.invalid">
+                        An icon name is required!
+                    </div>
+                </div>
+            </div>
 
             <div class="form-row">
                 <div class="col-auto form-group col-md-6">
                     <label for="isActive">Is Active</label>
 
-              <div class="radio">
-                <label>
-                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive1" [value]="true" checked="">Active
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive"  name="isActive" id="isActive2" [value]="false">Inactive
-                </label>
-            </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive" name="isActive" id="isActive1" [value]="true" checked="">Active
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" #isActive="ngModel" [(ngModel)]="component.isActive" name="isActive" id="isActive2" [value]="false">Inactive
+                        </label>
+                    </div>
 
 
                 </div>

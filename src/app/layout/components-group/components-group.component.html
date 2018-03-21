@@ -3,29 +3,39 @@
     <div class="row">
         <div class="col-md-8">
             <div style="margin: auto; max-width: 1500px; margin-bottom: 400px;">
-            <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Group Name</label>
-                        <input #componentGroupName="ngModel" [(ngModel)]="ComponentGroup.componentGroupName" name="componentGroupName" id="componentGroupName"
-                            type="text" class="form-control" required>
-                        <div class="alert alert-danger" *ngIf="componentGroupName.touched && componentGroupName.invalid">
-                            Group Name is required!
+                <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Group Name</label>
+                            <input #componentGroupName="ngModel" [(ngModel)]="ComponentGroup.componentGroupName" name="componentGroupName" id="componentGroupName"
+                                type="text" class="form-control" required>
+                            <div class="alert alert-danger" *ngIf="componentGroupName.touched && componentGroupName.invalid">
+                                Group Name is required!
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <label for="name">Select the components for this User Type</label>
-                    <angular2-multiselect [data]="observables" [(ngModel)]="ComponentGroup.component" name="component" [settings]="dropdownSettings"
-                        (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
-                        (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="icon">Icon</label>
+                            <input #icon="ngModel" [(ngModel)]="ComponentGroup.icon" name="icon" id="icon" type="text" class="form-control" required>
+                            <div class="alert alert-danger" *ngIf="icon.touched && icon.invalid">
+                                An icon name is required!
+                            </div>
+                        </div>
+                    </div>
 
-                <br>
-                <button class="btn btn-outline-primary form-group col-md-3" [disabled]="!f.valid">Submit</button>
+                    <div>
+                        <label for="name">Select the components for this User Type</label>
+                        <angular2-multiselect [data]="observables" [(ngModel)]="ComponentGroup.component" name="component" [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+                            (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+                    </div>
 
-            </form>
+                    <br>
+                    <button class="btn btn-outline-primary form-group col-md-3" [disabled]="!f.valid">Submit</button>
+
+                </form>
+            </div>
         </div>
     </div>
-</div>

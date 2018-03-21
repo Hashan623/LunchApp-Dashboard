@@ -6,12 +6,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import 'rxjs/add/operator/take';
 //import { OutletService } from './../../../outlet.service';
 import { UUID } from 'angular2-uuid';
+import { routerTransition } from '../../../router.animations';
 
 
 @Component({
   selector: 'app-userlevels-form',
   templateUrl: './user-levels-form.component.html',
-  styleUrls: ['./user-levels-form.component.css']
+  styleUrls: ['./user-levels-form.component.css'],
+  animations: [routerTransition()]
 })
 export class UserLevelsFormComponent implements OnInit {
 

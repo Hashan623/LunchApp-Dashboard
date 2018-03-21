@@ -4,12 +4,14 @@ import { Subscription } from 'rxjs/Rx';
 import { OrderService } from '../order.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { DataTableResource } from 'angular5-data-table';
+import { routerTransition } from '../../../router.animations';
 
 
 @Component({
   selector: 'app-orders-view',
   templateUrl: './orders-view.component.html',
-  styleUrls: ['./orders-view.component.css']
+  styleUrls: ['./orders-view.component.css'],
+  animations: [routerTransition()]
 })
 export class OrdersViewComponent implements OnInit, OnDestroy {
 

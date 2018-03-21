@@ -4,11 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import 'rxjs/add/operator/take';
 import { UUID } from 'angular2-uuid';
+import { routerTransition } from '../../../router.animations';
 
 @Component({
   selector: 'app-user-form',
   templateUrl: './users-form.component.html',
-  styleUrls: ['./users-form.component.css']
+  styleUrls: ['./users-form.component.css'],
+  animations: [routerTransition()]
 })
 export class UsersFormComponent implements OnInit {
 
