@@ -7,6 +7,5 @@ export class ComponentGroup {
     componentGroupName : string;
     icon : string;
     component : [ComponentModel];
-    icon: string;
 
 }
