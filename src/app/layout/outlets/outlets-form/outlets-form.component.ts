@@ -98,7 +98,73 @@ private basePath:string = '/uploads';
 
   ngOnInit() {
   }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+                              //GOOGLE MAP//
+
+
+
+
+  // title: string = 'Google Maps Addeed Successfully';
+
+  //    lat: number = 6.927079 ;
+
+  //    lng: number = 79.861244;
+
+
+
+
+
+  // google maps zoom level
+  zoom: number = 12;
+
+    lat: number =  6.927079;
+    lng: number = 79.861244;
+
+    draggable : boolean = true;
+
+    clickedMarker(label: string, index: number) {
+      console.log(`clicked the marker: ${label || index}`)
+    }
+
+    mapClicked(m: marker, $event: MouseEvent) {
+      this.markers.length = 0;
+      this.markers.push({
+        lat: $event.coords.lat,
+        lng: $event.coords.lng,
+        draggable: true
+      });
+      console.log('place', m, $event);
+
+    }
+
+    markerDragEnd(m: marker, $event: MouseEvent) {
+      this.markers.length = 0;
+      this.markers.push({
+        lat: $event.coords.lat,
+        lng: $event.coords.lng,
+        draggable: false
+      });
+      console.log('dragEnd', m, $event);
+    }
+
+
+
+    markers: marker[] = [
+        // {
+          //   lat: 6.886867772472544,
+          //   lng: 79.88675504922867,
+          //   label: 'Sen Su',
+          //   draggable: true
+        // }
+
+    ]
 }
+
+
 
 // just an interface for type safety.
 interface marker {
