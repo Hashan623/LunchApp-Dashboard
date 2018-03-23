@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OutletFormComponent } from './outlet-form.component';
+import { OutletsFormComponent } from './outlets-form.component';
 
 describe('OutletFormComponent', () => {
-  let component: OutletFormComponent;
-  let fixture: ComponentFixture<OutletFormComponent>;
+  let component: OutletsFormComponent;
+  let fixture: ComponentFixture<OutletsFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OutletFormComponent ]
+      declarations: [ OutletsFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OutletFormComponent);
+    fixture = TestBed.createComponent(OutletsFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

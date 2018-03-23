@@ -59,19 +59,19 @@ export class DayFoodComponent implements OnInit {
 
     DayFood.food.forEach(function (current_value) {
 
-      let dayfoodModel = new DayFood;
+      let dayfoodModel = new FoodDetail();
       dayfoodModel.fname = current_value.itemName;
       dayfoodModel.UUID = current_value.id;
 
       componentModelGroup.push(dayfoodModel);
     });
-
+    
     DayFood.UUID = this.uuid;
-    DayFood.outletName = DayFood.outletName;
-    DayFood.foodType = DayFood.foodtype;
-    DayFood.curryCount = DayFood.curryCount;
-    DayFood.date = DayFood.date;
-    DayFood.foodDetail = componentModelGroup;
+    //DayFood.outletName = DayFood.outletName;
+    //DayFood.foodType = DayFood.foodtype;
+    //DayFood.curryCount = DayFood.curryCount;
+    //DayFood.date = DayFood.date;
+    //DayFood.foodDetail = componentModelGroup;
     this.db.database.ref('/dayFood').child(this.uuid).set(DayFood)
   }
 

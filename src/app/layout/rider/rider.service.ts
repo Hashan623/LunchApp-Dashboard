@@ -4,6 +4,10 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
+import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase';
+
+
 @Injectable()
 export class RiderService {
   uuid;
@@ -15,7 +19,7 @@ export class RiderService {
   addresses: FirebaseListObservable<Address[]> = null;
 
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor( private db: AngularFireDatabase) { }
 
 
   getAddress(key: string): FirebaseObjectObservable<Address> {
@@ -27,6 +31,7 @@ export class RiderService {
   create(rider, address: Address, uuid) {
   //  rider.googleid = 'null';
   //  rider.active = 'false';
+
 
     this.uuid = uuid;
     rider.UUID = uuid;
@@ -49,15 +54,57 @@ export class RiderService {
     return this.db.object('/riders/' + riderId)
   }
 
-  //  updateRider(active: string, rider: Rider): void {
-  //   this.db.object('riders/'+active).update(rider);
-  //  }
-  // private handleError(error) {
-  // console.log(error);
-  // }
 
-  // updateActive(riderId: any, active: string): void {
-  //   this.db.object('/riders/' + riderId)
-  //     .update({ content: active, active: riderId.active });
-  // }
+
+
+
+//   basePath = 'riders';
+//   uploadsRef: AngularFireList<Rider>;
+//   riders: Observable<Rider[]>;
+
+  private uploadTask: firebase.storage.UploadTask;
+
+    private basePath:string = '/riders';
+    riders: FirebaseListObservable<Rider[]>;
+
+  pushUpload(rider: Rider) {
+    let storageRef = firebase.storage().ref();
+    let uploadTask = storageRef.child(`${this.basePath}/${rider.file.name}`).put(rider.file);
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) =>  {
+        // upload in progress
+     //   rider.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+     const snap = snapshot;
+     rider.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100 // CHANGEMENT IS HERE
+      },
+      (error) => {
+        // upload failed
+        console.log(error)
+      },
+    //   () => {
+
+    //     // upload success
+
+    //     if (uploadTask.snapshot.downloadURL) {
+    //         rider.url = uploadTask.snapshot.downloadURL;
+    //         rider.name = rider.file.name;
+    //       this.saveFileData(rider);
+    //       return;
+    //     } else {
+    //       console.error('No download URL!');
+    //     }
+    //   },
+    );
+  }
+
+
+  // Writes the file details to the realtime db
+  private saveFileData(rider: Rider) {
+    this.db.list(`${this.basePath}/`).push(rider);
+  }
+
+
+
+
 }

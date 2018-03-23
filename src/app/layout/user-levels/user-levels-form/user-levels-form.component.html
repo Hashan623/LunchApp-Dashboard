@@ -1,5 +1,5 @@
-
-
+<div [@routerTransition]>
+  <app-page-header [heading]="'User Levels Form'" [icon]="'fa fa-edit'"></app-page-header>
 
 
 <div class="row">
@@ -11,7 +11,7 @@
             <label for="userlevelname">User Level Name</label>
             <input #userlevelname="ngModel" [(ngModel)]="userlevels.userlevelname" name="userlevelname" id="userlevelname" type="text" class="form-control" required>
             <div class="alert alert-danger" *ngIf="userlevelname.touched && userlevelname.invalid">
-              user level name is required!
+              UserLevel Name is required!
             </div>
           </div>
         </div>

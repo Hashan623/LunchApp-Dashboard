@@ -37,6 +37,7 @@ export class ComponentsGroupComponent implements OnInit {
         com.itemName = snapshot.componentName;
         com.url = snapshot.url;
         com.id = snapshot.UUID;
+        com.icon = snapshot.icon;
         this.observables.push(com);
       });
     });
@@ -66,6 +67,7 @@ export class ComponentsGroupComponent implements OnInit {
       componentModel.uuid = current_value.id;
       componentModel.url = current_value.url;
       componentModel.isActive = current_value.isActive;
+      componentModel.icon = current_value.icon;
 
       componentModelGroup.push(componentModel);
     });

@@ -1,7 +1,7 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <div class="list-group">
 
-        <div class="nested-menu">
+        <!-- <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('orders')">
                 <span>
                     <i class="fas fa-dollar-sign"></i>&nbsp; {{ 'Orders' | translate }}</span>
@@ -135,11 +135,36 @@
                     </a>
                 </ul>
             </li>
+        </div> -->
+
+        <div class="nested-menu">
+            <div *ngFor="let c of navGroupHeaderList">
+            <a class="list-group-item" (click)="addExpandClass(c.componentGroupName,c.UUID)" >
+                <span>
+                    <i class="{{c.icon}}"></i>&nbsp; {{ c.componentGroupName | translate }}</span>
+                    
+            </a>
+            <li class="nested" [class.expand]="showMenu ===  c.componentGroupName " >
+                    <!-- <div ngbDropdownMenu> -->
+                <ul class="submenu" >
+                    <a [routerLink]="[d.url]" [routerLinkActive]="['router-link-active']" class="list-group-item" *ngFor="let d of navGroupDetailList">
+                        <i class="{{d.icon}}"></i>&nbsp;{{ d.componentName | translate }}
+                    </a>
+                    <!-- <a [routerLink]="['/components-list-form']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                        <i class="fa fa-edit"></i>&nbsp;{{ 'Form' | translate }}
+                    </a> -->
+                </ul>
+            <!-- </div> -->
+            </li>
+            </div>
         </div>
 
-        <a [routerLink]="['/components-grouping']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fas fa-sitemap"></i>&nbsp;{{ 'Components Group' | translate }}
-        </a>
+
+        <!-- <div>
+            <a [routerLink]="['/components-grouping']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fas fa-sitemap"></i>&nbsp;{{ 'Components Group' | translate }}
+            </a>
+        </div>
 
         <a [routerLink]="['/set-permissions']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fas fa-flag"></i>&nbsp;{{ 'Set Permissions' | translate }}
@@ -198,8 +223,8 @@
         </a>
         <a class="list-group-item more-themes" href="http://www.strapui.com/">
             {{ 'More Theme' | translate }}
-        </a>
-        <div class="header-fields">
+        </a> -->
+        <!-- <div class="header-fields">
             <a (click)="rltAndLtr()" class="list-group-item">
                 <span>
                     <i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
@@ -250,7 +275,7 @@
                         </li>
                     </ul>
                 </li>
-            </div>
+            </div> -->
             <!-- <div class="nested-menu">
                 <a class="list-group-item" (click)="addExpandClass('profile')">
                     <span>
@@ -285,6 +310,6 @@
                     </ul>
                 </li>
             </div> -->
-        </div>
+        <!-- </div> -->
     </div>
 </nav>

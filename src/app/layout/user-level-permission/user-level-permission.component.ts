@@ -4,11 +4,13 @@ import { UUID } from 'angular2-uuid';
 import { ComponentGroupMultiSelect } from './../../models/component-group-multiSelect';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
+import { routerTransition } from '../../router.animations';
 
 @Component({
   selector: 'app-user-level-permission',
   templateUrl: './user-level-permission.component.html',
-  styleUrls: ['./user-level-permission.component.css']
+  styleUrls: ['./user-level-permission.component.css'],
+  animations: [routerTransition()]
 })
 export class UserLevelPermissionComponent implements OnInit {
 

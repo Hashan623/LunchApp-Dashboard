@@ -5,5 +5,6 @@ export class ComponentModel {
     itemName: string;
     url: string;
     isActive: string ;
+    icon: string;
 
 }

@@ -1,3 +1,4 @@
+import { UserService } from './layout/users/user.service';
 import { FoodDetailTypeService } from './layout/food/food-detail-type/food-detail-type.service';
 import { SpinnerService } from './spinner.service';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
@@ -30,6 +31,11 @@ import { AuthGuard } from './shared';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
+<<<<<<< HEAD
+import { AgmCoreModule } from '@agm/core';
+=======
+import { OutletTestService } from './layout/outlets/outlet-test.service';
+>>>>>>> 8b00be9506278441d1d4b7c00ce6a5f801e7439d
 
 
 // AoT requires an exported function for factories
@@ -42,7 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 
 // const googleMapsCore = AgmCoreModule.forRoot({
-//     apiKey : 'AIzaSyDHvITRcjLl9JrObz3SIBTgGNl9rTijVr8',
+//     apiKey : 'AIzaSyBqPVJZVjdiDEDcooC4sjLb46j9oIO6BUs',
 //   });
 
 
@@ -50,6 +56,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
+        AgmCoreModule,
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         Ng4LoadingSpinnerModule.forRoot(),
@@ -62,6 +69,9 @@ export function createTranslateLoader(http: HttpClient) {
         BrowserAnimationsModule,
         DataTableModule,
         AngularMultiSelectModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBqPVJZVjdiDEDcooC4sjLb46j9oIO6BUs'
+          }),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -83,6 +93,8 @@ export function createTranslateLoader(http: HttpClient) {
         UsersCrudService,
         ComponentService,
         ComponentGroupService,
+        UserService,
+        OutletTestService,
         SpinnerService,
         FoodDetailTypeService
     ],

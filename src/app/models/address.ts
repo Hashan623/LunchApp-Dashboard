@@ -9,5 +9,10 @@ export class Address {
   
     latitude: string;
     longtitude: string;
+    file:File;
+    progress:number;
+
+    
+
   }
   
