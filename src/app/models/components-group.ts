@@ -5,7 +5,7 @@ export class ComponentGroup {
 
     UUID : string;
     componentGroupName : string;
+    icon : string;
     component : [ComponentModel];
-    icon: string;
 
 }

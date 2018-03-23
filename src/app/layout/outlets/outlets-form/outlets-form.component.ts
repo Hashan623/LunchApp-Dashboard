@@ -12,6 +12,7 @@ import { UUID } from 'angular2-uuid';
 import { routerTransition } from '../../../router.animations';
 import { fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
 import { delay } from 'rxjs/operators';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'outlets-form',
@@ -28,6 +29,8 @@ export class OutletsFormComponent implements OnInit {
 address: Address = new Address();
 
 uuid: string = UUID.UUID();
+private basePath:string = '/uploads';
+public uploadTask: firebase.storage.UploadTask;
 
   constructor(
     private router: Router,
@@ -42,55 +45,54 @@ uuid: string = UUID.UUID();
     }
    }
 
-  save(outlet,address, uuid) {
+  save(outlet,img) {
     if (this.id) 
     {  
       this.outletService.update(this.id, outlet);
     }
     else 
     {
-      outlet.file = this.selectedFiles.item(0);
       outlet.UUID = this.uuid;
+      outlet.imageUrl = img.src;
 
-      let source;
-
-      var promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          source = this.outletService.PushUpload(outlet);
-          console.log("Async Work Complete");
-          console.log("TEST 0022 : "+source);
-          resolve();
-        }, 1000);
-      });
-
-      // setTimeout(()=>{
-      //   source = this.outletService.PushUpload(outlet);
-      // },200000);
-
-      // let source = this.outletService.PushUpload((outlet)=>{
-      //   delay(10);
-      // });
-      // it('should be able to work with Observable.delay', fakeAsync(() => {
-      //   let actuallyDone=false;
-      //   source= this.outletService.PushUpload(outlet);
-        
-      //   tick(100);
-      //   expect(actuallyDone).toBeTruthy(); // Expected false to be truthy.
-    
-      //   discardPeriodicTasks();
-      // }));
-
-
-      
-      //source.delay(10);
-      //waits(2000)
-      
-
+      this.outletService.create(outlet);     
     }
-    this.address = new Address();
 
     this.router.navigate(['/outlets-view']);
   }
+
+  PushUpload(upload,img) {
+
+    let storageReference = firebase.storage().ref('/images/' + upload.files[0].name);
+    this.uploadTask = storageReference.put(upload.files[0]);
+    this.uploadTask.on('state_changed', function (snapshot) {
+
+      upload.progress = (this.uploadTask.snapshot.bytesTransferred / this.uploadTask.snapshot.totalBytes) * 100;
+      console.log('Upload is ' + upload.progress + '% done');
+      
+      switch (this.uploadTasksnapshot.state) {
+        case firebase.storage.TaskState.PAUSED: // or 'paused'
+          console.log('Upload is paused');
+          break;
+        case firebase.storage.TaskState.RUNNING: // or 'running'
+          console.log('Upload is running');
+          break;
+      }
+    }, function (error) {
+      // Handle unsuccessful uploads
+    }, function () {
+      
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      storageReference.getDownloadURL().then(function (url) {
+        // Insert url into an <img> tag to "download"
+        img.src = url;
+        console.log('Upload is ' + url );
+      });
+ 
+    });
+  }
+
 
   detectFiles(event) {
     this.selectedFiles = event.target.files;
@@ -98,68 +100,6 @@ uuid: string = UUID.UUID();
 
   ngOnInit() {
   }
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////
-                              //GOOGLE MAP//
-
-
-
-
-  // title: string = 'Google Maps Addeed Successfully';
-
-  //    lat: number = 6.927079 ;
-
-  //    lng: number = 79.861244;
-
-
-
-
-
-//   // google maps zoom level
-//   zoom: number = 12;
-
-//   lat: number =  6.927079;
-//   lng: number = 79.861244;
-
-//   draggable : boolean = true;
-
-//   clickedMarker(label: string, index: number) {
-//     console.log(`clicked the marker: ${label || index}`)
-//   }
-
-//   mapClicked(m: marker, $event: MouseEvent) {
-//     this.markers.length = 0;
-//     this.markers.push({
-//       lat: $event.coords.lat,
-//       lng: $event.coords.lng,
-//       draggable: true
-//     });
-//     console.log('place', m, $event);
-
-//   }
-
-//   markerDragEnd(m: marker, $event: MouseEvent) {
-//     this.markers.length = 0;
-//     this.markers.push({
-//       lat: $event.coords.lat,
-//       lng: $event.coords.lng,
-//       draggable: false
-//     });
-//     console.log('dragEnd', m, $event);
-//   }
-
-
-
-//   markers: marker[] = [
-// 	  // {
-// 		//   lat: 6.886867772472544,
-// 		//   lng: 79.88675504922867,
-// 		//   label: 'Sen Su',
-// 		//   draggable: true
-// 	  // }
-
-//   ]
 }
 
 // just an interface for type safety.
