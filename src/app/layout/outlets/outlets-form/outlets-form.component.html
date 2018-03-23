@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-md-8">
-            <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
+            <form #f="ngForm" (ngSubmit)="save(f.value,img)" style="width: 750px;">
 
 
                 <div class="form-row">
@@ -224,8 +224,10 @@
 
                 <div class="form-group">
                         <label for="imageUrl">Image URL</label>
-                        <input #imageUrl="ngModel" [(ngModel)]="outlet.imageUrl" name="imageUrl" id="imageUrl" type="file" class="form-control" (change)="detectFiles($event)" >
+                        <input     name="imageUrl" id="imageUrl" type="file" class="form-control" (change)="PushUpload(file,img)" #file>
                         
+                                <img height="100" width="100" alt="Preview Will be displayed here"  src=""  #img>
+                              
                 </div>
 
 

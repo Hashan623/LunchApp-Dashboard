@@ -52,26 +52,11 @@ export class OutletService {
         try {
         console.log("Complete : "+ uploadTask.snapshot.downloadURL);
         upload.URL = uploadTask.snapshot.downloadURL;
-        //return uploadTask.snapshot.downloadURL;
+        return uploadTask.snapshot.downloadURL;
 
-        var promise = new Promise((resolve, reject) => {
-          setTimeout(() => {
-            this.create(upload);
-            console.log("Async Work Complete 02");
-            //console.log("TEST 0022 : "+source);
-            resolve();
-          }, 1000);
-        });
-
-        //let outletSave2 = new OutletTestService();
-        //outletSave2.outletSave(upload);
         } catch (error) {
           console.log(error);
         }
-        //new OutletTestService().outletSave(upload);
-        //new create()
-        //this.create(upload);
-        //return this.upload;
       }
       
     });
