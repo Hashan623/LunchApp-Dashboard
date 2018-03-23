@@ -31,12 +31,8 @@ import { AuthGuard } from './shared';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
-<<<<<<< HEAD
 import { AgmCoreModule } from '@agm/core';
-=======
 import { OutletTestService } from './layout/outlets/outlet-test.service';
->>>>>>> 8b00be9506278441d1d4b7c00ce6a5f801e7439d
-
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {

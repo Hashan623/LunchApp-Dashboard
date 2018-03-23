@@ -200,11 +200,7 @@
                 </div>
 
 
-
-
-<<<<<<< HEAD
                 <div class="form-group">
-=======
                 <!---       ////////////////////////////////////   latitude and  longtitude Text Box           ////////////////////////////////              -->
 
 
@@ -233,22 +229,10 @@
 
 
 
-
-                <!-- <div class="form-group">
->>>>>>> 8b00be9506278441d1d4b7c00ce6a5f801e7439d
-                    <label for="imageUrl">Image URL</label>
-                    <input #imageUrl="ngModel" [(ngModel)]="outlet.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required
-                        url>
-                    <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
-                        <div *ngIf="imageUrl.errors.required">Image URL is required!</div>
-                        <div *ngIf="imageUrl.errors.url">URL is invalid!</div>
-                    </div>
-                </div> -->
-
                 <div class="form-group">
                         <label for="imageUrl">Image URL</label>
                         <input     name="imageUrl" id="imageUrl" type="file" class="form-control" (change)="PushUpload(file,img)" #file>
-                                <img height="100" width="100" alt="Preview Will be displayed here"  src=""  #img>   
+                                <img height="100" width="100" alt="Preview Will be displayed here"  src=""  #img>
                 </div>
 
                 <!-- <div class="form-group">
