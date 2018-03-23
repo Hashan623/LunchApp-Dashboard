@@ -24,7 +24,7 @@ export class FoodtypeService {
     return this.db.list('/foodtypes', {
       query: {
         orderByChild: 'isMainMenu',
-        equalTo: false
+        equalTo: true //Himanshu
       }
     });
   }

@@ -1,3 +1,4 @@
+import { UserService } from './layout/users/user.service';
 import { FoodDetailTypeService } from './layout/food/food-detail-type/food-detail-type.service';
 import { SpinnerService } from './spinner.service';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
@@ -30,6 +31,7 @@ import { AuthGuard } from './shared';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { OutletTestService } from './layout/outlets/outlet-test.service';
 
 
 // AoT requires an exported function for factories
@@ -83,6 +85,8 @@ export function createTranslateLoader(http: HttpClient) {
         UsersCrudService,
         ComponentService,
         ComponentGroupService,
+        UserService,
+        OutletTestService,
         SpinnerService,
         FoodDetailTypeService
     ],

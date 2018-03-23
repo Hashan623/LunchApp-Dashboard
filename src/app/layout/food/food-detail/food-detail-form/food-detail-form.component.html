@@ -74,7 +74,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="foodDetailType">Food Detail Type</label>
-                        <select #foodDetailType="ngModel" [(ngModel)]="fooddetail.foodDetailType" [(ngModel)]="fooddetail.sort" name="foodDetailType" id="foodDetailType" class="form-control"
+                        <select #foodDetailType="ngModel" [(ngModel)]="fooddetail.foodDetailType" name="foodDetailType" id="foodDetailType" class="form-control"
                             required>
                             <option *ngFor="let f of foodDetailTypes$ | async" [ngValue]="f">
                                 {{ f.description }}

@@ -5,7 +5,7 @@
             <div style="margin: auto; max-width: 1500px; margin-bottom: 400px;">
                 <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
 
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name">Name</label>
                             <input #name="ngModel" [(ngModel)]="dayfood.name" name="name" id="name" class="form-control" required>
@@ -13,7 +13,7 @@
                                 <div *ngIf="name.errors.required">Name is required!</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <div class="form-row">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <!-- <div class="form-group col-md-6">
                         <label for="foodType">Food Type</label>
                         <select #foodType="ngModel" [(ngModel)]="dayfood.foodType" name="foodType" id="foodType" class="form-control" required>
                             <option *ngFor="let f of foodtypes$ | async" [value]="f.UUID">
@@ -40,7 +40,7 @@
                         <div class="alert alert-danger" *ngIf="foodType.touched && foodType.invalid">
                             Food Type is required.
                         </div>
-                    </div>
+                    </div> -->
 
                     <div>
                         <label for="name">Select the Foods for this day</label>

@@ -10,6 +10,8 @@ import { MouseEvent } from '@agm/core';
 
 import { UUID } from 'angular2-uuid';
 import { routerTransition } from '../../../router.animations';
+import { fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'outlets-form',
@@ -20,6 +22,7 @@ import { routerTransition } from '../../../router.animations';
 export class OutletsFormComponent implements OnInit {
   outlet = {};
   id;
+  selectedFiles: FileList;
 //  address={};
 
 address: Address = new Address();
@@ -32,19 +35,65 @@ uuid: string = UUID.UUID();
     private outletService: OutletService) {
 
     this.id = this.route.snapshot.paramMap.get('id');
-    this.ngOnInit
-    if (this.id) this.outletService.get(this.id).take(1).subscribe(o => this.outlet = o);
+    this.ngOnInit;
+    if (this.id) 
+    {
+      this.outletService.get(this.id).take(1).subscribe(o => this.outlet = o);
+    }
    }
 
   save(outlet,address, uuid) {
-    if (this.id) this.outletService.update(this.id, outlet);
-    else this.outletService.create(this.outlet,this.address, this.uuid);
+    if (this.id) 
+    {  
+      this.outletService.update(this.id, outlet);
+    }
+    else 
+    {
+      outlet.file = this.selectedFiles.item(0);
+      outlet.UUID = this.uuid;
+
+      let source;
+
+      var promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          source = this.outletService.PushUpload(outlet);
+          console.log("Async Work Complete");
+          console.log("TEST 0022 : "+source);
+          resolve();
+        }, 1000);
+      });
+
+      // setTimeout(()=>{
+      //   source = this.outletService.PushUpload(outlet);
+      // },200000);
+
+      // let source = this.outletService.PushUpload((outlet)=>{
+      //   delay(10);
+      // });
+      // it('should be able to work with Observable.delay', fakeAsync(() => {
+      //   let actuallyDone=false;
+      //   source= this.outletService.PushUpload(outlet);
+        
+      //   tick(100);
+      //   expect(actuallyDone).toBeTruthy(); // Expected false to be truthy.
+    
+      //   discardPeriodicTasks();
+      // }));
 
 
+      
+      //source.delay(10);
+      //waits(2000)
+      
 
+    }
     this.address = new Address();
 
     this.router.navigate(['/outlets-view']);
+  }
+
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
   }
 
   ngOnInit() {
