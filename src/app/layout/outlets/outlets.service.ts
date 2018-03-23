@@ -22,7 +22,6 @@ export class OutletService {
   
   constructor(private db: AngularFireDatabase, private outletSave: OutletTestService) { 
     //this.outletSave2 = outletSave;
-
   }
   
   getOutletList() {
@@ -33,35 +32,34 @@ export class OutletService {
     });
   }
 
-  PushUpload(upload) {
-    let storageRef = firebase.storage().ref();
-    let uploadTask = storageRef.child(this.basePath).child(upload.file.name).put(upload.file);
-    //let outletSave2:OutletTestService;
+  // PushUpload(upload) {
+  //   let storageRef = firebase.storage().ref();
+  //   let uploadTask = storageRef.child(this.basePath).child(upload.file.name).put(upload.file);
+  //   //let outletSave2:OutletTestService;
+  //   uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,{
+  //     next :function (snapshot){
+  //       // upload in progress
+  //       upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
+  //       //console.log("Progress : "+upload.progress);
+  //     },
+  //     error: function (error) {
+  //       // upload failed
+  //       console.log(error)
+  //     },
+  //     complete: function () {
+  //       try {
+  //       console.log("Complete : "+ uploadTask.snapshot.downloadURL);
+  //       upload.URL = uploadTask.snapshot.downloadURL;
+  //       return uploadTask.snapshot.downloadURL;
 
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,{
-      next :function (snapshot){
-        // upload in progress
-        upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
-        //console.log("Progress : "+upload.progress);
-      },
-      error: function (error) {
-        // upload failed
-        console.log(error)
-      },
-      complete: function () {
-        try {
-        console.log("Complete : "+ uploadTask.snapshot.downloadURL);
-        upload.URL = uploadTask.snapshot.downloadURL;
-        return uploadTask.snapshot.downloadURL;
-
-        } catch (error) {
-          console.log(error);
-        }
-      }
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     }
       
-    });
-    //return "aaaa";
-  }
+  //   });
+  //   //return "aaaa";
+  // }
 
   
 

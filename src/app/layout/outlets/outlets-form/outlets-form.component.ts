@@ -30,7 +30,7 @@ address: Address = new Address();
 
 uuid: string = UUID.UUID();
 private basePath:string = '/uploads';
-public uploadTask: firebase.storage.UploadTask;
+//public uploadTask: firebase.storage.UploadTask;
 
   constructor(
     private router: Router,
@@ -64,13 +64,13 @@ public uploadTask: firebase.storage.UploadTask;
   PushUpload(upload,img) {
 
     let storageReference = firebase.storage().ref('/images/' + upload.files[0].name);
-    this.uploadTask = storageReference.put(upload.files[0]);
-    this.uploadTask.on('state_changed', function (snapshot) {
-
-      upload.progress = (this.uploadTask.snapshot.bytesTransferred / this.uploadTask.snapshot.totalBytes) * 100;
+    let uploadTask = storageReference.put(upload.files[0]);
+    uploadTask.on('state_changed', function (snapshot) {
+      console.log('Upload is % done');
+      upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
       console.log('Upload is ' + upload.progress + '% done');
       
-      switch (this.uploadTasksnapshot.state) {
+      switch (uploadTask.snapshot.state) {
         case firebase.storage.TaskState.PAUSED: // or 'paused'
           console.log('Upload is paused');
           break;
@@ -89,7 +89,7 @@ public uploadTask: firebase.storage.UploadTask;
         img.src = url;
         console.log('Upload is ' + url );
       });
- 
+      return this.uploadTask;
     });
   }
 
