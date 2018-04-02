@@ -19,11 +19,11 @@ export class OutletService {
 
   private basePath:string = '/uploads';
   uploads: FirebaseListObservable<Address[]>;
-  
-  constructor(private db: AngularFireDatabase, private outletSave: OutletTestService) { 
+
+  constructor(private db: AngularFireDatabase, private outletSave: OutletTestService) {
     //this.outletSave2 = outletSave;
   }
-  
+
   getOutletList() {
     return this.db.list('/outlets', {
       query: {
@@ -56,15 +56,15 @@ export class OutletService {
   //         console.log(error);
   //       }
   //     }
-      
+
   //   });
   //   //return "aaaa";
   // }
 
-  
+
 
   getAddress(key: string): FirebaseObjectObservable<Address> {
-    
+
     this.address = this.db.object(`${this.addressPath}/${key}`);
     return this.address;
   }

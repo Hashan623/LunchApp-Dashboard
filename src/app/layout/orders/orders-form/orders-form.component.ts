@@ -40,7 +40,7 @@ export class OrdersFormComponent implements OnInit {
 
 
 
-    this.router.navigate(['/admin/order/orders']);
+    this.router.navigate(['/orders-view']);
   }
 
   ngOnInit() {

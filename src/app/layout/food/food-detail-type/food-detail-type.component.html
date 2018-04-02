@@ -7,7 +7,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="description">Description</label>
-                        <input #description="ngModel" [(ngModel)]="foodDetailType.description" name="description" id="description" class="form-control"
+                        <input #description="ngModel" [(ngModel)]="foodDetailType.description" name="description" id="description" class="form-control" type="text"
                             required>
                         <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
                             <div *ngIf="description.errors.required">Description is required!</div>
@@ -30,12 +30,12 @@
                         <label for="isActive">Is Active</label>
                         <div class="radio">
                             <label>
-                                <input type="radio" #isActive="ngModel" [(ngModel)]="foodDetailType.isActive" name="isActive" id="isActive1" [value]="true">Active
+                                <input type="radio" #isActive="ngModel" [(ngModel)]="foodDetailType.isActive" name="isActive" id="isActive1" [value]="true" required>Active
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" #isActive="ngModel" [(ngModel)]="foodDetailType.isActive" name="isActive" id="isActive2" [value]="false">Inactive
+                                <input type="radio" #isActive="ngModel" [(ngModel)]="foodDetailType.isActive" name="isActive" id="isActive2" [value]="false" required>Inactive
                             </label>
                         </div>
                     </div>

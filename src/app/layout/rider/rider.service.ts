@@ -7,10 +7,12 @@ import { UUID } from 'angular2-uuid';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase';
 
+import { RiderTestService } from './rider-test.service';
 
 @Injectable()
 export class RiderService {
   uuid;
+  ID: string
 
   private addressPath: string = '/address';
 
@@ -19,7 +21,11 @@ export class RiderService {
   addresses: FirebaseListObservable<Address[]> = null;
 
 
-  constructor( private db: AngularFireDatabase) { }
+  private basePath:string = '/uploads';
+  uploads: FirebaseListObservable<Address[]>;
+
+
+  constructor( private db: AngularFireDatabase, private riderSave: RiderTestService) { }
 
 
   getAddress(key: string): FirebaseObjectObservable<Address> {
@@ -28,18 +34,19 @@ export class RiderService {
   }
 
 
-  create(rider, address: Address, uuid) {
-  //  rider.googleid = 'null';
-  //  rider.active = 'false';
+  create(upload) {
+
+    console.log("Complete 100");
+
+    //this.uuid = uuid;
+   // rider.UUID = uuid;
+    this.db.database.ref('/riders').child(upload.UUID).set(upload);
 
 
-    this.uuid = uuid;
-    rider.UUID = uuid;
-    this.db.database.ref('/riders').child(this.uuid).set(rider)
   //  this.db.list('/riders').push(rider);
 
-    const addresses = this.db.list('/address');
-    addresses.push(address);
+  //  const addresses = this.db.list('/address');
+  //  addresses.push(address);
   }
 
   update(riderId, rider) {

@@ -2,14 +2,14 @@
     <app-page-header [heading]="'Rider Form'" [icon]="'fa fa-edit'"></app-page-header>
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-md-8">
 
-            <form #f="ngForm" (ngSubmit)="save(f.value)" style="width: 750px;">
+            <form #f="ngForm" (ngSubmit)="save(f.value,img)" style="width: 750px;">
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="rname">Rider Name</label>
-                        <input #rname="ngModel" [(ngModel)]="rider.rname" name="rname" id="rname" type="text" class="form-control" required>
+                        <input #rname="ngModel" [(ngModel)]="rider.rname" name="rname" id="rname" type="text" maxlength="30" class="form-control" required>
                         <div class="alert alert-danger" *ngIf="rname.touched && rname.invalid">
                             Name is required!
                         </div>
@@ -28,7 +28,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nic">NIC</label>
-                        <input #nic="ngModel" [(ngModel)]="rider.nic" name="nic" id="nic" type="text" class="form-control" required>
+                        <input #nic="ngModel" [(ngModel)]="rider.nic" name="nic" id="nic" type="text" maxlength="10" class="form-control" required>
                         <div class="alert alert-danger" *ngIf="nic.touched && nic.invalid">
                             NIC is required!
                         </div>
@@ -36,7 +36,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="googleid">GoogleID</label>
-                        <input #googleid="ngModel" [(ngModel)]="rider.googleid" name="googleid" id="googleid" type="text" class="form-control" required>
+                        <input #googleid="ngModel" [(ngModel)]="rider.googleid" name="googleid" id="googleid" type="text" maxlength="20" class="form-control" required>
                         <div class="alert alert-danger" *ngIf="googleid.touched && googleid.invalid">
                             GoogleID is required!
                         </div>
@@ -50,7 +50,7 @@
                     <div class="form-group col-md-6">
                         <label for="addressnumber">Address No</label>
                         <input #addressnumber="ngModel" [(ngModel)]="rider.addressnumber" [(ngModel)]="address.addressnumber" name="addressnumber"
-                            id="addressnumber" type="text" class="form-control" required>
+                            id="addressnumber" type="text" maxlength="5" class="form-control" required>
                         <div class="alert alert-danger" *ngIf="addressnumber.touched && addressnumber.invalid">
                             Address Number is required!
                         </div>
@@ -58,7 +58,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="subroad">Sub Road </label>
-                        <input #subroad="ngModel" [(ngModel)]="rider.subroad" [(ngModel)]="address.subroad" name="subroad" id="subroad" type="text"
+                        <input #subroad="ngModel" [(ngModel)]="rider.subroad" [(ngModel)]="address.subroad" name="subroad" id="subroad" type="text" maxlength="30"
                             class="form-control" required>
                         <div class="alert alert-danger" *ngIf="subroad.touched && subroad.invalid">
                             Sub Road is required!
@@ -67,7 +67,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="mainroad">Main Road</label>
-                        <input #mainroad="ngModel" [(ngModel)]="rider.mainroad" [(ngModel)]="address.mainroad" name="mainroad" id="mainroad" type="text"
+                        <input #mainroad="ngModel" [(ngModel)]="rider.mainroad" [(ngModel)]="address.mainroad" name="mainroad" id="mainroad" type="text" maxlength="30"
                             class="form-control" required>
                         <div class="alert alert-danger" *ngIf="mainroad.touched && mainroad.invalid">
                             Main Road is required!
@@ -76,7 +76,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="city">City</label>
-                        <input #city="ngModel" [(ngModel)]="rider.city" [(ngModel)]="address.city" name="city" id="city" type="text" class="form-control"
+                        <input #city="ngModel" [(ngModel)]="rider.city" [(ngModel)]="address.city" name="city" id="city" type="text" class="form-control" maxlength="30"
                             required>
                         <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
                             City is required!
@@ -87,7 +87,7 @@
 
 
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="imageUrl">Image URL</label>
                     <input #imageUrl="ngModel" [(ngModel)]="rider.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control"
                         url>
@@ -95,14 +95,27 @@
                         <div *ngIf="imageUrl.errors.required">Image URL is required!</div>
                         <div *ngIf="imageUrl.errors.url">URL is invalid!</div>
                     </div>
+                </div> -->
+
+
+                <div class="form-group">
+                    <label for="imageUrl">Image URL</label>
+                    <input name="imageUrl" id="imageUrl" type="file" class="form-control" (change)="PushUpload(file,img)" #file required>
+                    <img height="100" width="100" alt="Preview Will be displayed here" src="" #img required>
+
+                    <!-- <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+                        <div *ngIf="imageUrl.errors.required">imageUrl is required!</div>
+                    </div> -->
                 </div>
+
+
 
 
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="avgrating">Average Rating</label>
-                        <input #avgrating="ngModel" [(ngModel)]="rider.avgrating" name="avgrating" id="avgrating" type="text" class="form-control"
+                        <input #avgrating="ngModel" [(ngModel)]="rider.avgrating" name="avgrating" id="avgrating" type="number" class="form-control"
                             required>
                         <div class="alert alert-danger" *ngIf="avgrating.touched && avgrating.invalid">
                             Average Rating is required!
@@ -127,12 +140,19 @@
                         </div>
                     </div>
 
-
-
                 </div>
 
                 <button class="btn btn-outline-primary form-group col-md-3" [disabled]="!f.valid">Submit</button>
             </form>
+        </div>
+
+        <div class="col-md-4">
+            <div *ngIf="rider.rname" class="card" style="width: 20rem;">
+                <img class="card-img-top" [src]="rider.imageUrl" *ngIf="rider.imageUrl">
+                <div class="card-body">
+                    <h4 class="card-title">{{ rider.rname }}</h4>
+                </div>
+            </div>
         </div>
     </div>
 

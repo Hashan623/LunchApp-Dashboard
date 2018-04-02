@@ -46,13 +46,14 @@ private basePath:string = '/uploads';
   save(outlet,img) {
     if (this.id)
     {
+      outlet.UUID = this.uuid;
+      outlet.imageUrl = img.src;
       this.outletService.update(this.id, outlet);
     }
     else
     {
       outlet.UUID = this.uuid;
       outlet.imageUrl = img.src;
-
       this.outletService.create(outlet);
     }
 

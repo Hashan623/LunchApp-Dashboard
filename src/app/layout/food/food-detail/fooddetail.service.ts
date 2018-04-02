@@ -2,14 +2,19 @@ import { Injectable } from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { UUID } from 'angular2-uuid';
 
+import * as firebase from 'firebase';
+import { FooddetailTestService } from './fooddetail-test.service';
+
 @Injectable()
 export class FooddetailService {
 
   //ID: string = UUID.UUID();
+
+
+  constructor(private db: AngularFireDatabase, private fooddetailSave: FooddetailTestService) { }
+
   uuid;
-
-  constructor(private db: AngularFireDatabase) { }
-
+  private basePath:string = '/uploads';
   // getFoodtypesList() {
   //   return this.db.list('/foodtypes', {
   //     query: {
@@ -19,16 +24,20 @@ export class FooddetailService {
   //   });
   // }
 
+//   create(fooddetail, uuid) {
+//     this.uuid = uuid;
+//     fooddetail.UUID = uuid;
+//     this.db.database.ref('/fooddetails').child(this.uuid).set(fooddetail)
+//   }
 
-  // create(fooddetail) {
-  //  this.db.list('/fooddetails').push(fooddetail);
-  // // this.db.list('/address').push(address);
-  // }
+  create(upload) {
+    console.log("Complete 100");
+    //this.uuid = upload.UUID;
+    //outlet.UUID = uuid;
+    this.db.database.ref('/fooddetails').child(upload.UUID).set(upload);
 
-  create(fooddetail, uuid) {
-    this.uuid = uuid;
-    fooddetail.UUID = uuid;
-    this.db.database.ref('/fooddetails').child(this.uuid).set(fooddetail)
+    //  const addresses = this.db.list('/address');
+    //  addresses.push(address);
   }
 
   update(fooddetailId, fooddetail) {

@@ -15,11 +15,9 @@ export class Rider {
       mainroad: string;
       city: string;
 
-      url: string;
+     // url: string;
       file:File;
       progress:number;
       name: string;
-      constructor(file:File) {
-        this.file = file;
-      }
+
     }

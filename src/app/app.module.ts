@@ -33,6 +33,9 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AgmCoreModule } from '@agm/core';
 import { OutletTestService } from './layout/outlets/outlet-test.service';
+import { RiderTestService } from './layout/rider/rider-test.service';
+import { FoodtypeTestService } from './layout/food/food-types/foodtype-test.service';
+import { FooddetailTestService } from './layout/food/food-detail/fooddetail-test.service';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -91,6 +94,9 @@ export function createTranslateLoader(http: HttpClient) {
         ComponentGroupService,
         UserService,
         OutletTestService,
+        FoodtypeTestService,
+        FooddetailTestService,
+        RiderTestService,
         SpinnerService,
         FoodDetailTypeService
     ],

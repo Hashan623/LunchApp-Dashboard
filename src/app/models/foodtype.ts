@@ -7,4 +7,6 @@ export class FoodType {
     imageUrl: string;
     isSpecial:boolean = true;
     isActive: boolean = true;
+    file: File;
+    progress:number;
   }
